@@ -267,7 +267,7 @@
 }
 - (BOOL) isEmpty{
 	BOOL empty = YES;
-	int sections = self.numberOfSections;
+	NSInteger sections = self.numberOfSections;
     for(int i = 0; i < sections; i++){
 		if([self numberOfRowsInSection:i] > 0){
 			empty = NO;

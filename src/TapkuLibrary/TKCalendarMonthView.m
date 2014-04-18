@@ -332,11 +332,11 @@ static NSNumberFormatter *numberFormatter = nil;
 	}
 	
 	
-    float myColorValues[] = {1, 1, 1, .8};
+    const CGFloat myColorValues[] = {1, 1, 1, .8};
     CGColorSpaceRef myColorSpace = CGColorSpaceCreateDeviceRGB();
 	CGColorRef whiteColor = CGColorCreate(myColorSpace, myColorValues);
 
-	float darkColorValues[] = {0, 0, 0, .5};
+	const CGFloat darkColorValues[] = {0, 0, 0, .5};
     CGColorRef darkColor = CGColorCreate(myColorSpace, darkColorValues);
 	
 
@@ -523,7 +523,7 @@ static NSNumberFormatter *numberFormatter = nil;
     }
 	
 	[self addSubview:self.selectedImageView];
-	self.currentDay.text = [NSString stringWithFormat:@"%d",day];
+	self.currentDay.text = [NSString stringWithFormat:@"%ld",(long)day];
 	
 	if (self.marks.count > 0) {
 		if([self.marks[row * 7 + column] boolValue])
@@ -533,8 +533,6 @@ static NSNumberFormatter *numberFormatter = nil;
 	}else{
 		[self.dot removeFromSuperview];
 	}
-	
-
 	
 	
 	self.selectedImageView.frame = CGRectMakeWithSize((column*46)-1, (row*44), self.selectedImageView.frame.size);
